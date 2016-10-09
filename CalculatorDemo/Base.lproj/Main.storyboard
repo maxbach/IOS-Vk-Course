@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calculator View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CalculatorDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CalculatorViewController" customModule="CalculatorDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -34,6 +34,9 @@
                                     <color key="titleColor" red="0.076430821567334842" green="0.0" blue="0.65995796319796951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aqe-bP-fdZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="guL-1D-OXZ">
                                 <color key="backgroundColor" red="0.56470588235294117" green="0.792156862745098" blue="0.97647058823529409" alpha="0.32839255136986301" colorSpace="custom" customColorSpace="sRGB"/>
@@ -42,6 +45,9 @@
                                     <color key="titleColor" red="0.076430821567334842" green="0.0" blue="0.65995796319796951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lCE-j4-EiZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="V4g-By-Y2D">
                                 <color key="backgroundColor" red="0.56470588235294117" green="0.792156862745098" blue="0.97647058823529409" alpha="0.32839255136986301" colorSpace="custom" customColorSpace="sRGB"/>
@@ -50,6 +56,9 @@
                                     <color key="titleColor" red="0.076430821567334842" green="0.0" blue="0.65995796319796951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pOF-hs-v6q"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="t5e-T5-f2b">
                                 <color key="backgroundColor" red="0.25882352941176467" green="0.6470588235294118" blue="0.96078431372549022" alpha="0.32839255136986301" colorSpace="custom" customColorSpace="sRGB"/>
@@ -58,6 +67,9 @@
                                     <color key="titleColor" red="0.076430821567334842" green="0.0" blue="0.65995796319796951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickCharAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NTJ-4U-gZ6"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="nfR-AU-DUR">
                                 <color key="backgroundColor" red="0.56470588235294117" green="0.792156862745098" blue="0.97647058823529409" alpha="0.32839255136986301" colorSpace="custom" customColorSpace="sRGB"/>
@@ -66,6 +78,9 @@
                                     <color key="titleColor" red="0.076430821567334842" green="0.0" blue="0.65995796319796951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k95-A4-SyY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="20B-zJ-ExX">
                                 <color key="backgroundColor" red="0.56470588235294117" green="0.792156862745098" blue="0.97647058823529409" alpha="0.32839255136986301" colorSpace="custom" customColorSpace="sRGB"/>
@@ -74,6 +89,9 @@
                                     <color key="titleColor" red="0.076430821567334842" green="0.0" blue="0.65995796319796951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FRU-Hd-wzL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="p1H-Oe-SZL">
                                 <color key="backgroundColor" red="0.56470588235294117" green="0.792156862745098" blue="0.97647058823529409" alpha="0.32839255136986301" colorSpace="custom" customColorSpace="sRGB"/>
@@ -82,6 +100,9 @@
                                     <color key="titleColor" red="0.076430821567334842" green="0.0" blue="0.65995796319796951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1U3-J1-hwa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="91m-yn-Qwg">
                                 <color key="backgroundColor" red="0.25882352941176467" green="0.6470588235294118" blue="0.96078431372549022" alpha="0.32839255136986301" colorSpace="custom" customColorSpace="sRGB"/>
@@ -90,6 +111,9 @@
                                     <color key="titleColor" red="0.076430821567334842" green="0.0" blue="0.65995796319796951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickCharAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gaa-ew-rrr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="Nab-gj-moP">
                                 <color key="backgroundColor" red="0.56470588235294117" green="0.792156862745098" blue="0.97647058823529409" alpha="0.32839255136986301" colorSpace="custom" customColorSpace="sRGB"/>
@@ -98,6 +122,9 @@
                                     <color key="titleColor" red="0.076430821567334842" green="0.0" blue="0.65995796319796951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yoJ-lJ-RWA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="Z8u-ys-raH">
                                 <color key="backgroundColor" red="0.56470588235294117" green="0.792156862745098" blue="0.97647058823529409" alpha="0.32839255136986301" colorSpace="custom" customColorSpace="sRGB"/>
@@ -106,6 +133,9 @@
                                     <color key="titleColor" red="0.076430821567334842" green="0.0" blue="0.65995796319796951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nAZ-0t-YdV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="Efz-XI-2I0">
                                 <color key="backgroundColor" red="0.56470588235294117" green="0.792156862745098" blue="0.97647058823529409" alpha="0.32839255136986301" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,6 +144,9 @@
                                     <color key="titleColor" red="0.076430821567334842" green="0.0" blue="0.65995796319796951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QQw-xT-aAP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="y9F-dq-GuU">
                                 <color key="backgroundColor" red="0.25882352941176467" green="0.6470588235294118" blue="0.96078431372549022" alpha="0.32839255136986301" colorSpace="custom" customColorSpace="sRGB"/>
@@ -122,6 +155,9 @@
                                     <color key="titleColor" red="0.076430821567334842" green="0.0" blue="0.65995796319796951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickCharAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2MM-Qc-KYV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="AYB-je-h6L">
                                 <color key="backgroundColor" red="0.25882352941176467" green="0.6470588235294118" blue="0.96078431372549022" alpha="0.32839255136986301" colorSpace="custom" customColorSpace="sRGB"/>
@@ -138,6 +174,9 @@
                                     <color key="titleColor" red="0.076430821567334842" green="0.0" blue="0.65995796319796951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteOneCharAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ris-iv-XNG"/>
+                                </connections>
                             </button>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="i0o-VS-2ks">
                                 <color key="backgroundColor" red="0.25882352941176467" green="0.6470588235294118" blue="0.96078431372549022" alpha="0.32839255136986301" colorSpace="custom" customColorSpace="sRGB"/>
@@ -147,6 +186,9 @@
                                     <color key="titleColor" red="0.076430821567334842" green="0.0" blue="0.65995796319796951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickCharAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hqv-2q-XCt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="OMm-O3-3H4">
                                 <color key="backgroundColor" red="0.25882352941176467" green="0.6470588235294118" blue="0.96078431372549022" alpha="0.32839255136986301" colorSpace="custom" customColorSpace="sRGB"/>
@@ -155,6 +197,9 @@
                                     <color key="titleColor" red="0.076430821567334842" green="0.0" blue="0.65995796319796951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="cleanAllLine:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zSF-ib-Nir"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="TJj-lV-eq7">
                                 <color key="backgroundColor" red="0.56470588235294117" green="0.792156862745098" blue="0.97647058823529409" alpha="0.32839255136986301" colorSpace="custom" customColorSpace="sRGB"/>
@@ -171,6 +216,9 @@
                                     <color key="titleColor" red="0.076430821567334842" green="0.0" blue="0.65995796319796951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickZeroAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bE9-F1-KS0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="Mfd-CE-nLv">
                                 <color key="backgroundColor" red="0.56470588235294117" green="0.792156862745098" blue="0.97647058823529409" alpha="0.32839255136986301" colorSpace="custom" customColorSpace="sRGB"/>
@@ -187,6 +235,9 @@
                                     <color key="titleColor" red="0.076430821567334842" green="0.0" blue="0.65995796319796951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="calculateExpressionAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ezm-sr-HIc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -284,6 +335,9 @@
                             <constraint firstItem="p1H-Oe-SZL" firstAttribute="width" secondItem="nfR-AU-DUR" secondAttribute="width" id="zyP-01-qNl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="labelOutlet" destination="e1z-Bx-jyt" id="uqv-b0-HGi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
