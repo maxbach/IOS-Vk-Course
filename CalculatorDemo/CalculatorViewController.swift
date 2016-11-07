@@ -9,9 +9,19 @@
 import UIKit
 
 class CalculatorViewController: UIViewController {
+    
     var isLastCharIsNumber:Bool = true;
+    var canWeUseDot:Bool = true;
+    var currentNumber:String = "0";
+    var left:Int = 0;
+    
+    @IBOutlet weak var deleteButtonOutlet: UIButton!
     @IBOutlet weak var labelOutlet: UILabel!
+    
     override func viewDidLoad() {
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(CalculatorViewController.cleanAllLine));
+        
+        deleteButtonOutlet.addGestureRecognizer(longGesture);
         super.viewDidLoad();
         labelOutlet.text = "0"
     }
@@ -21,47 +31,109 @@ class CalculatorViewController: UIViewController {
     }
     
     
-    
+    //Fucn - action for number buttons
     @IBAction func clickNumberAction(_ sender: UIButton) {
         if (labelOutlet.text == "0") {
             labelOutlet.text = "";
         }
-        labelOutlet.text = labelOutlet.text! + (sender.titleLabel?.text!)!;
+        addCharToExpression(char: Character((sender.titleLabel?.text!)!));
+        if (isLastCharIsNumber == false) {
+            canWeUseDot = true;
+        }
         isLastCharIsNumber = true;
     }
     
     @IBAction func clickCharAction(_ sender: UIButton) {
         if (isLastCharIsNumber) {
-            labelOutlet.text = labelOutlet.text! + (sender.titleLabel?.text!)!;
+            addCharToExpression(char: Character((sender.titleLabel?.text!)!));
+            canWeUseDot = false;
             isLastCharIsNumber = false;
         }
         
     }
     
-    @IBAction func clickZeroAction(_ sender: UIButton) {
-        if (isLastCharIsNumber && labelOutlet.text != "0") {
-            labelOutlet.text = labelOutlet.text! + (sender.titleLabel?.text!)!;
+    @IBAction func leftButtonAction(_ sender: UIButton) {
+        if (currentNumber == "0") {
+            isLastCharIsNumber = false;
+            labelOutlet.text = "";
+            left += 1;
+            addCharToExpression(char: "(")
+            canWeUseDot = true;
+        } else if (!isLastCharIsNumber) {
+            left += 1;
+            addCharToExpression(char: "(")
+            canWeUseDot = true;
+        }
+    }
+    
+    
+    @IBAction func rightButtonAction(_ sender: UIButton) {
+        if (isLastCharIsNumber && left > 0 && currentNumber.characters.last != ".") {
+            left -= 1;
+            addCharToExpression(char: ")")
+            canWeUseDot = false;
+        }
+    }
+    @IBAction func clickDotAction(_ sender: UIButton) {
+        if (canWeUseDot || !isLastCharIsNumber) {
+            addCharToExpression(char: ".")
+            canWeUseDot = false;
             isLastCharIsNumber = true;
         }
     }
     
-    @IBAction func deleteOneCharAction(_ sender: UIButton) {
-        let name :String = labelOutlet.text!
-        if (name.characters.count == 1) {
-            cleanAllLine(sender)
-        } else if (name.characters.count != 0 && name != "0") {
-            labelOutlet.text = name.substring(to: name.index(before: name.endIndex))
+    func addCharToExpression(char:Character) {
+        labelOutlet.text = labelOutlet.text! + String(char);
+        if (isCharOperation(char)) {
+            currentNumber = "";
+        } else {
+            currentNumber = currentNumber + String(char);
         }
     }
     
-    
-    @IBAction func cleanAllLine(_ sender: UIButton) {
-        labelOutlet.text = "0";
-        isLastCharIsNumber = true;
+    @IBAction func clickZeroAction(_ sender: UIButton) {
+        if (isLastCharIsNumber && labelOutlet.text != "0") {
+            addCharToExpression(char: "0");
+            if (isLastCharIsNumber == false) {
+                canWeUseDot = true;
+            }
+            isLastCharIsNumber = true;
+        }
     }
     
+    // Func - delete one char
+    @IBAction func deleteOneCharAction(_ sender: UIButton) {
+//        let name :String = labelOutlet.text!
+//        if (name.characters.count == 1) {
+//            cleanAllLine(sender)
+//        } else if (name.characters.count != 0 && name != "0") {
+//            labelOutlet.text = name.substring(to: name.index(before: name.endIndex))
+//            
+//        }
+    }
+    
+    
+    @IBAction func cleanAllLine() {
+        labelOutlet.text = "0";
+        isLastCharIsNumber = true;
+        canWeUseDot = true;
+        left = 0;
+    }
+    
+    
     @IBAction func calculateExpressionAction(_ sender: UIButton) {
+        
         var str:String = labelOutlet.text!;
+        let lastChar = str.characters.last;
+        if (isCharOperation(lastChar!) || lastChar == ".") {
+            return;
+        }
+        if (left != 0) {
+            while (left != 0) {
+                str += ")"
+                left -= 1
+            }
+        }
         var stack = charStack();
         var ppnExp = [String]()
         var num:String = ""
@@ -138,12 +210,16 @@ class CalculatorViewController: UIViewController {
         let round:Int = Int(result);
         if (result - Double(round) == 0.0) {
             labelOutlet.text = String(round);
+            canWeUseDot = true;
         } else {
             labelOutlet.text = String(result);
+            canWeUseDot = false;
         }
 
         
     }
+    
+    
     func isCharNumber(_ char : Character) -> Bool{
         for i in 0...9 {
             if (String(char) == String(i) ){
@@ -211,6 +287,7 @@ class CalculatorViewController: UIViewController {
 
 }
 
+// Func - get prior of the operation
 func getPr(_ char : Character) -> Int {
     if (char == "+" || char == "-") {
         return 2;
