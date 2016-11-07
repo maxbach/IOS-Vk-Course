@@ -7,17 +7,19 @@ There is a simple realize of calculator on Swift 3 for IOS10.
 * Considering prioritet of operations
 * App realize Reverse Polish notation
 
+#### 1.1
+* Added functional to buttons "()", "."
+* Long tap to "<-" remove all expression
+
+
 ###TODO
-* Add functions to buttons "()", ".", "+-"
+* Add functions to buttons "<-"
+* "+-" will be replaced to "^" operation
 * Add new functions in horizontal orientation
 
 ###Screenshots
-Scr1: 
-![alt text][scr1]
+Show expression:
+<img src="https://github.com/maxbach/IOS-Vk-Course/blob/master/Show%20exp.png" alt="alt text" height="500">
 
-Scr2: 
-![alt text][scr2]
-
-[scr1]: https://github.com/maxbach/IOS-Vk-Course/blob/master/Show%20exp.png "Screen1"
-
-[scr2]: https://github.com/maxbach/IOS-Vk-Course/blob/master/Show%20res.png "Screen1"
+Calculate expression:
+<img src="https://github.com/maxbach/IOS-Vk-Course/blob/master/Show%20res.png" alt="alt text" height="500">
