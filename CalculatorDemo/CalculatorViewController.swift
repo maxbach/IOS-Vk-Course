@@ -12,7 +12,7 @@ class CalculatorViewController: UIViewController {
     
     var isLastCharIsNumber:Bool = true;
     var canWeUseDot:Bool = true;
-    var currentNumber:String = "0";
+    var currentNumber:[String] = [];
     var left:Int = 0;
     
     @IBOutlet weak var deleteButtonOutlet: UIButton!
@@ -24,6 +24,7 @@ class CalculatorViewController: UIViewController {
         deleteButtonOutlet.addGestureRecognizer(longGesture);
         super.viewDidLoad();
         labelOutlet.text = "0"
+        currentNumber.append("0")
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,6 +36,8 @@ class CalculatorViewController: UIViewController {
     @IBAction func clickNumberAction(_ sender: UIButton) {
         if (labelOutlet.text == "0") {
             labelOutlet.text = "";
+            currentNumber.removeLast();
+            currentNumber.append("")
         }
         addCharToExpression(char: Character((sender.titleLabel?.text!)!));
         if (isLastCharIsNumber == false) {
@@ -53,7 +56,7 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func leftButtonAction(_ sender: UIButton) {
-        if (currentNumber == "0") {
+        if (currentNumber.last == "0") {
             isLastCharIsNumber = false;
             labelOutlet.text = "";
             left += 1;
@@ -68,7 +71,7 @@ class CalculatorViewController: UIViewController {
     
     
     @IBAction func rightButtonAction(_ sender: UIButton) {
-        if (isLastCharIsNumber && left > 0 && currentNumber.characters.last != ".") {
+        if (isLastCharIsNumber && left > 0 && currentNumber.last?.characters.last != ".") {
             left -= 1;
             addCharToExpression(char: ")")
             canWeUseDot = false;
@@ -85,9 +88,11 @@ class CalculatorViewController: UIViewController {
     func addCharToExpression(char:Character) {
         labelOutlet.text = labelOutlet.text! + String(char);
         if (isCharOperation(char)) {
-            currentNumber = "";
+            currentNumber.append("");
+            
         } else {
-            currentNumber = currentNumber + String(char);
+            let lastItem : String = currentNumber.removeLast();
+            currentNumber.append(lastItem + String(char))
         }
     }
     
@@ -103,13 +108,42 @@ class CalculatorViewController: UIViewController {
     
     // Func - delete one char
     @IBAction func deleteOneCharAction(_ sender: UIButton) {
-//        let name :String = labelOutlet.text!
-//        if (name.characters.count == 1) {
-//            cleanAllLine(sender)
-//        } else if (name.characters.count != 0 && name != "0") {
-//            labelOutlet.text = name.substring(to: name.index(before: name.endIndex))
-//            
-//        }
+        var name :String = labelOutlet.text!
+        if (name.characters.count == 1) {
+            cleanAllLine()
+        } else if (name.characters.count != 0 && name != "0") {
+            
+            let lastChar : Character = name.characters.last!;
+            labelOutlet.text = name.substring(to: name.index(before: name.endIndex));
+            name = labelOutlet.text!;
+            let newLastChar : Character = name.characters.last!
+            isLastCharIsNumber = isCharNumber(newLastChar)
+            
+            if (lastChar == ".") {
+                canWeUseDot = true
+            } else if (isCharNumber(lastChar)) {
+                let lastItem : String = currentNumber.removeLast();
+                currentNumber.append(lastItem.substring(to: lastItem.index(before: lastItem.endIndex)))
+                canWeUseDot = !isNumberHasDot(str: currentNumber.last!)
+                
+                
+            } else if (isCharOperation(lastChar)) {
+                currentNumber.removeLast();
+                canWeUseDot = !isNumberHasDot(str: currentNumber.last!)
+            
+            } else if (lastChar == "(") {
+                left -= 1
+                canWeUseDot = false
+                currentNumber.removeLast();
+            
+            } else if (lastChar == ")") {
+                left += 1
+                canWeUseDot = !isNumberHasDot(str: currentNumber.last!)
+            
+            }
+            
+            
+        }
     }
     
     
@@ -118,6 +152,8 @@ class CalculatorViewController: UIViewController {
         isLastCharIsNumber = true;
         canWeUseDot = true;
         left = 0;
+        currentNumber.removeAll(keepingCapacity: false)
+        currentNumber.append("0")
     }
     
     
@@ -200,6 +236,9 @@ class CalculatorViewController: UIViewController {
                 case "/":
                     newStack.push(num1 / num2)
                     break;
+                case "^":
+                    newStack.push(pow(num1, num2));
+                    break;
                 default:
                     print("Неизведанная херь!")
                     break;
@@ -234,9 +273,18 @@ class CalculatorViewController: UIViewController {
     }
     
     func isCharOperation(_ char: Character) -> Bool {
-        let items = ["+", "-", "*", "/"];
+        let items = ["+", "-", "*", "/", "^"];
         for op in items {
             if (String(op) == String(char)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    func isNumberHasDot (str: String) -> Bool {
+        for i in str.characters {
+            if (i == ".") {
                 return true;
             }
         }
@@ -295,6 +343,8 @@ func getPr(_ char : Character) -> Int {
         return 3;
     } else if (char == "(" || char == ")") {
         return 1;
+    } else if (char == "^") {
+        return 4;
     } else {
         return 0;
     }

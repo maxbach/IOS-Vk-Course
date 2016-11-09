@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalculatorDemo/CalculatorViewController.swift"
-            timestampString = "498593879.309805"
+            timestampString = "500371398.467639"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
-            landmarkName = "pop()"
+            startingLineNumber = "271"
+            endingLineNumber = "271"
+            landmarkName = "isCharNumber(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

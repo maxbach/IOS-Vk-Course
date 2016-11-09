@@ -11,10 +11,13 @@ There is a simple realize of calculator on Swift 3 for IOS10.
 * Added functional to buttons "()", "."
 * Long tap to "<-" remove all expression
 
+#### 1.2
+* Added deleting one character
+* Added power operator "^"
+
 
 ###TODO
-* Add functions to buttons "<-"
-* "+-" will be replaced to "^" operation
+* Fix bugs with negative numbers, big numbers and dividing by zero
 * Add new functions in horizontal orientation
 
 ###Screenshots
